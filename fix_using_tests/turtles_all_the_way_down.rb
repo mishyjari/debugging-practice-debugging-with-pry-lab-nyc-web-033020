@@ -10,8 +10,10 @@ end
 
 def turtle_traits(turtles)
   turtles.map do |turtle|
-    turtle[:traits].each do |trait|
-      trait
+    if turtle[:traits].is_a? Array
+      turtle = turtle[:traits]
+    else
+      turtle = [turtle[:traits]]
     end
   end
 end
